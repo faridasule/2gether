@@ -5,8 +5,9 @@ const EducationNav = () => {
   const educationnav = sideNavigation()
 
   return (
-    <div className="pt-4 h-full bg-purple-800  flex flex-col items-start">
-      <ul className="flex flex-col gap-3 list-none text-gray-400 p-10 w-70 h-full h-1000">
+      <div className='h-screen'>
+           <div className="pt-4 min-h-screen bg-purple-800  flex flex-col items-start">
+      <ul className="flex flex-col gap-3 list-none text-gray-400 p-10 w-70">
         {educationnav.map((nav) => (
           <li className="mb-4" key={nav.title}>
             <a
@@ -35,6 +36,8 @@ const EducationNav = () => {
       </ul>
      
     </div>
+      </div>
+      
   )
 }
 

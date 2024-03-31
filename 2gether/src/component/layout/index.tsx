@@ -24,7 +24,9 @@ const EducationLayout = () => {
           sm={2}
           style={{
             borderRight: '1px solid #EEEEEE',
-            paddingRight: '0',
+              paddingRight: '0',
+            //   minHeight: "screen"
+            
           }}
         >
           <EducationNav />
