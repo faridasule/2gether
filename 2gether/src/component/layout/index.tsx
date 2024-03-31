@@ -1,4 +1,3 @@
-import { Col, Row } from 'react-flexbox-grid'
 import EducationNav from '../side-nav'
 import Header from '../header'
 import { IoArrowBackOutline } from 'react-icons/io5'
@@ -11,6 +10,7 @@ import trcn from '../../assets/Trcn.svg'
 import resourceNavigation from '../../@core/navigations/resources'
 import latestNewsNavigation from '../../@core/navigations/news'
 import examNavigation from '../../@core/navigations/popular-exam'
+import Grid from '@mui/material/Grid'
 
 const EducationLayout = () => {
   const navigationItems = resourceNavigation()
@@ -19,19 +19,19 @@ const EducationLayout = () => {
 
   return (
     <>
-      <Row>
-        <Col
+      <Grid container direction="row">
+        <Grid
+          item
           sm={2}
           style={{
             borderRight: '1px solid #EEEEEE',
-              paddingRight: '0',
-            //   minHeight: "screen"
-            
+            paddingRight: '0',
           }}
         >
           <EducationNav />
-        </Col>
-        <Col
+        </Grid>
+        <Grid
+          item
           sm={10}
           style={{
             padding: '0',
@@ -39,10 +39,11 @@ const EducationLayout = () => {
           }}
         >
           <Header />
-          <Row className="bg-gray-200 ml-0 gap-2">
-            <Col
+          <Grid container className="bg-gray-200 ml-0 gap-1">
+            <Grid
               md={7}
-              className=" bg-white px-5 py-5 flex flex-col ml-3 gap-6"
+              direction="column"
+              className="flex-col bg-white  px-5 py-5 flex flex-col ml-3 gap-6"
             >
               <a href="" className="flex items-center">
                 <IoArrowBackOutline />
@@ -54,17 +55,19 @@ const EducationLayout = () => {
                 <img width={700} height={500} src={banner} alt="notify" />
               </div>
               <div>
-                <div className="flex flex-col items-start">
+                <div className="flex-col items-start">
                   <h1 className="font-ubuntu text-24 font-medium l text-left mb-2">
                     Popular Examination
                   </h1>
-                  <Row>
+                  <Grid>
                     {exams.map((exam, index) => (
-                      <Col
+                      <Grid
                         key={index}
                         sm={12}
                         style={{
+                          display: 'flex',
                           backgroundColor: '#f5f5f5',
+                          flexDirection: 'column',
                           borderRadius: '10px',
 
                           gap: '1.2rem',
@@ -92,9 +95,9 @@ const EducationLayout = () => {
                             <p>{exam.title}</p>
                           </div>
                         </a>
-                      </Col>
+                      </Grid>
                     ))}
-                  </Row>
+                  </Grid>
                 </div>
               </div>
               <div>
@@ -105,14 +108,16 @@ const EducationLayout = () => {
                   Other examination
                 </h1>
                 <div>
-                  <Row
+                  <Grid
+                    direction="row"
+                    container
                     style={{
                       justifyContent: 'space-between',
                       textAlign: 'center',
                       gap: '1rem',
                     }}
                   >
-                    <Col
+                    <Grid
                       sm={5.5}
                       style={{
                         display: 'flex',
@@ -128,8 +133,8 @@ const EducationLayout = () => {
                       <img width={36} height={36} src={nda} alt="nda" />
                       <h1>NDA</h1>
                       <p>Nigerian Defence Academy</p>
-                    </Col>
-                    <Col
+                    </Grid>
+                    <Grid
                       sm={5.5}
                       style={{
                         display: 'flex',
@@ -149,16 +154,19 @@ const EducationLayout = () => {
                       />
                       <h1>NABTEB</h1>
                       <p>National Business and Technical Examinations Board</p>
-                    </Col>
-                  </Row>
-                  <Row
+                    </Grid>
+                  </Grid>
+                  <Grid
+                    container
+                    direction="row"
                     style={{
+                      display: 'flex',
                       justifyContent: 'space-between',
                       textAlign: 'center',
                       gap: '1rem',
                     }}
                   >
-                    <Col
+                    <Grid
                       sm={5.5}
                       style={{
                         display: 'flex',
@@ -182,8 +190,8 @@ const EducationLayout = () => {
                       <div>
                         Nigerian Maritime Administration and Safety Agency
                       </div>
-                    </Col>
-                    <Col
+                    </Grid>
+                    <Grid
                       sm={5.5}
                       style={{
                         display: 'flex',
@@ -207,30 +215,35 @@ const EducationLayout = () => {
                         Teachers' Registration Council of Nigeria Professional
                         Qualifying Examination
                       </p>
-                    </Col>
-                  </Row>
+                    </Grid>
+                  </Grid>
                 </div>
               </div>
-            </Col>
-            <Col
-              md={4.2}
-              className="bg-white px-5 py-5 flex flex-col ml-3 mr-1"
+            </Grid>
+            <Grid
+              container
+              direction="column"
+              md={4.6}
+              className="bg-white px-5 py-5 flex flex-col ml-3"
             >
-              <div className="flex flex-col">
+              <Grid item direction="column">
                 <h1 className="justify-center items-center font-ubuntu text-24 font-medium l mb-2">
                   Resources
                 </h1>
-                <Row>
+                <Grid container>
                   {navigationItems.map((item, index) => (
-                    <Col
+                    <Grid
+                      item
+                      direction="column"
                       key={index}
                       style={{
-                        marginBottom: '1rem',
                         display: 'flex',
+                        flexDirection: 'column',
+                        marginBottom: '1rem',
                         backgroundColor: '#f5f5f5',
                         borderRadius: '10px',
                         width: '450px',
-                        alignItems: 'center',
+                        alignItems: 'flex-start',
                       }}
                     >
                       <a
@@ -253,25 +266,29 @@ const EducationLayout = () => {
                           <p>{item.title}</p>
                         </div>
                       </a>
-                    </Col>
+                    </Grid>
                   ))}
-                </Row>
-              </div>
-              <div className="flex flex-col items-start mt-7">
+                </Grid>
+              </Grid>
+              <Grid  item direction="column" className="flex-col items-start mt-7">
                 <h1 className="font-ubuntu text-24 font-medium l text-left mb-2">
                   Latest News
                 </h1>
-                <Row>
+                <Grid container>
                   {navigationNewsItems.map((item, index) => (
-                    <Col
+                    <Grid
                       key={index}
+                      item
+                      direction="column"
                       style={{
-                        marginBottom: '1rem',
                         display: 'flex',
+                        flexDirection: 'column',
+                        marginBottom: '1rem',
                         backgroundColor: '#f5f5f5',
                         borderRadius: '10px',
                         width: '450px',
-                        alignItems: 'center',
+                        justifyContent:"center",
+                        alignItems: 'flex-start',
                       }}
                     >
                       <a
@@ -295,14 +312,14 @@ const EducationLayout = () => {
                           <p>{item.title}</p>
                         </div>
                       </a>
-                    </Col>
+                    </Grid>
                   ))}
-                </Row>
-              </div>
-            </Col>
-          </Row>
-        </Col>
-      </Row>
+                </Grid>
+              </Grid>
+            </Grid>
+          </Grid>
+        </Grid>
+      </Grid>
     </>
   )
 }

@@ -14,11 +14,11 @@ const EducationNav = () => {
               href={nav.link}
               className="font-light hover:text-white hover:font-medium"
             >
-              <div className="flex items-center ml-0 p-0 gap-0.7">
-                <span className="text-purple-300 w-6 text-lg hover:text-white hover:font-medium">
-                  <nav.icon />
+              <div className="flex items-center ml-0 p-0 gap-3">
+                <span className="text-purple-300 w-8  text-lg font-medium">
+                  <nav.icon size={32} />
                 </span>
-                <p className="text-purple-300 hover:text-white hover:font-medium">
+                <p className="text-purple-300 text-lg font-medium">
                   {nav.title}
                 </p>
               </div>

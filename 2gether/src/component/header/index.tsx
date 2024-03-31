@@ -7,7 +7,7 @@ import logo from '../../assets/logo.svg'
 
 const Header = () => {
   return (
-    <header className="header flex justify-between items-center w-full relative bg-white shadow-md px-2 md:px-4 py-2 md:py-3">
+    <header className="header flex justify-between items-center  relative bg-white shadow-md px-2 md:px-4 py-2 md:py-3">
       <Image width={120} src={logo} alt="2geda" />
       <div className={styles.nav}>
         <nav className="flex relative float-left items-center justify-end">
