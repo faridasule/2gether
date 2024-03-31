@@ -1,0 +1,41 @@
+import sideNavigation from '../../@core/navigations/side-nav'
+import { IoIosLogIn } from 'react-icons/io'
+
+const EducationNav = () => {
+  const educationnav = sideNavigation()
+
+  return (
+    <div className="pt-4 h-full bg-purple-800  flex flex-col items-start">
+      <ul className="flex flex-col gap-3 list-none text-gray-400 p-10 w-70 h-full h-1000">
+        {educationnav.map((nav) => (
+          <li className="mb-4" key={nav.title}>
+            <a
+              href={nav.link}
+              className="font-light hover:text-white hover:font-medium"
+            >
+              <div className="flex items-center ml-0 p-0 gap-0.7">
+                <span className="text-purple-300 w-6 text-lg hover:text-white hover:font-medium">
+                  <nav.icon />
+                </span>
+                <p className="text-purple-300 hover:text-white hover:font-medium">
+                  {nav.title}
+                </p>
+              </div>
+            </a>
+          </li>
+        ))}
+              <li  className="mt-10">
+                    <a href={''}>
+          <div className="flex items-center ml-0 p-0 gap-0.7">
+            <IoIosLogIn color="#fff" size={25} width={57} /> &nbsp;&nbsp;{' '}
+            <span className="text-white">Sign out</span>
+          </div>
+        </a>
+              </li>
+      </ul>
+     
+    </div>
+  )
+}
+
+export default EducationNav
